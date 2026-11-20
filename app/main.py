@@ -18,7 +18,8 @@ def promedio(datos: Numeros):
     c = 0
     for i in datos:
         c = c + i
-    return {"promedio", c/len(datos)}
+    c = c/len(datos)
+    return {"promedio": c}
 
 @app.get("/health")
 def health():
