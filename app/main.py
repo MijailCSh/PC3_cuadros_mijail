@@ -15,7 +15,10 @@ def sumar(a: int, b: int):
 def promedio(datos: Numeros):
     if len(datos) == 0:
         raise HTTPException(status_code=400, detail="Lista vacía")
-    return {"promedio", (a+b)/len(datos)}
+    c = 0
+    for i in datos:
+        c = c + i
+    return {"promedio", c/len(datos)}
 
 @app.get("/health")
 def health():
