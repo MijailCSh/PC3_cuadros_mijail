@@ -9,6 +9,11 @@ def test_sumar_integracion():
     assert respuesta.json() == {"suma": a+b}
 
 def test_promedio_lista_valida():
-    pass
+    respuesta = client.post("/promedio", [1, 2, 3])
+    assert respuesta.status_code == 200
+    assert respuesta.json() == {"promedio": 2}
+
 def test_promedio_lista_vacia():
-    pass
+    respuesta = client.post("/promedio", [])
+    assert respuesta.status_code == 400
+    assert respuesta.json() == {"detail": "Lista vacía"}
