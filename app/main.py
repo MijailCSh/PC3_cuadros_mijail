@@ -13,7 +13,7 @@ def sumar(a: int, b: int):
 
 @app.post("/promedio")
 def promedio(datos: Numeros):
-    if not datos[0]:
+    if len(datos) == 0:
         raise HTTPException(status_code=400, detail="Lista vacía")
     return {"promedio", (a+b)/len(datos)}
 
